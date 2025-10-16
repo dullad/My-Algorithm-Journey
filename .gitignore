@@ -39,3 +39,12 @@
 
 # debug information files
 *.dwo
+
+# VS Code specific
+.vscode/
+
+# Custom build outputs (extension-less executables on Linux/macOS)
+# This will ignore any file in the root directory that does not have an extension.
+# Be careful if you have important extension-less files you want to track.
+*
+!*.*
