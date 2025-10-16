@@ -1,50 +1,17 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# 编译生成的文件 (Object files, libraries, executables)
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
 *.lib
-
-# Executables
+*.so
+*.dll
 *.exe
 *.out
 *.app
-
-# debug information files
-*.dwo
-
-# Custom build outputs (extension-less executables on Linux/macOS)
-# This will ignore any file in the root directory that does not have an extension.
-# Be careful if you have important extension-less files you want to track.
 *
 !*.*
-
-# VS Code specific
+# VS Code 配置文件
 .vscode/
+
+# C++ 源文件
+*.cpp
