@@ -1,7 +1,7 @@
-*
-!*.*
 # VS Code 配置文件
 .vscode/
 
 # C++ 源文件
 *.cpp
+
+test
