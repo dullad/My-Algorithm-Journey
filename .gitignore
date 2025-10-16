@@ -1,13 +1,3 @@
-# 编译生成的文件 (Object files, libraries, executables)
-*.o
-*.obj
-*.a
-*.lib
-*.so
-*.dll
-*.exe
-*.out
-*.app
 *
 !*.*
 # VS Code 配置文件
