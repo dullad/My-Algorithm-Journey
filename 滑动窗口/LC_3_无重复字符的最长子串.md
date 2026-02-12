@@ -28,7 +28,7 @@
 4.  **更新结果**：在每一次 `right` 指针移动后（即窗口扩张后），窗口 `[left, right]` 都是一个有效的无重复字符子串。我们计算其长度 `right - left + 1`，并用它来更新最大长度 `maxLen`。
 
 **3.2 代码实现 (C++)**
-
+map版本（先扩张，后收缩）建议掌握这个版本
 ```c++
 class Solution {
 public:
@@ -42,17 +42,38 @@ public:
                 map[s[left++]] -= 1;
             }
             // 先去重再计算长度
-            int len = right - left + 1;
-            if(len > maxLen){
-                maxLen = len;
-            }
+            maxLen = max(maxLen, right - left + 1);
             right++;
         }
         return maxLen;
     }
 };
 ```
-
+set版本（先检查，后扩张）
+```C++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int left = 0, right = 0, maxLen = 1;
+        int n = s.length();
+        if(n <= 1){return n; }
+        unordered_set<char> set;
+        set.insert(s[right++]); 
+        while(right < n){
+            if(set.find(s[right]) != set.end()){
+                while(s[left] != s[right]){
+                    set.erase(s[left]);
+                    left++;
+                }
+                left++; 
+            }
+            maxLen = max(maxLen, right - left + 1);
+            set.insert(s[right++]);
+        }
+        return maxLen;
+    }
+};
+```
 ### 4. 复杂度分析
 
 -  **时间复杂度**: $O(N)$。其中 $N$ 是字符串 `s` 的长度。虽然代码中有嵌套的 `while` 循环，但 `left` 和 `right` 两个指针都各自从头到尾只遍历了字符串一次，所以总的时间复杂度是线性的。
